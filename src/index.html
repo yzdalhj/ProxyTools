@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VPN 局域网转发</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main>
+      <nav class="tabs" aria-label="页面视图">
+        <button class="tab active" data-view="config" type="button">配置</button>
+        <button class="tab" data-view="logs" type="button">日志 <span id="log-count"></span></button>
+      </nav>
+      <section id="config" class="view active">
+        <label>
+          转发网址
+          <input id="target" type="url" placeholder="https://vpn-site.example.com" required />
+        </label>
+        <div class="row">
+          <label>
+            监听地址
+            <input id="host" placeholder="正在获取本机 IP" required />
+          </label>
+          <label>
+            端口
+            <input id="port" type="number" value="8080" min="1" max="65535" required />
+          </label>
+        </div>
+        <button id="toggle" type="button">启动转发</button>
+        <p id="status">未启动</p>
+        <p class="hint">局域网用户访问：本机局域网 IP:端口/路径</p>
+      </section>
+      <section id="logs" class="view" hidden>
+        <div class="log-head">
+          <span>运行记录</span>
+          <button id="clear-logs" class="clear" type="button">清空</button>
+        </div>
+        <div id="log-list" aria-live="polite"><p class="empty">暂无运行记录</p></div>
+      </section>
+    </main>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

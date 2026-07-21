@@ -1,0 +1,14 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "vpn助手",
+  "version": "0.1.0",
+  "identifier": "com.local.vpnlanproxy",
+  "build": {
+    "beforeDevCommand": "npm run frontend:dev",
+    "beforeBuildCommand": "npm run frontend:build",
+    "devUrl": "http://localhost:5173",
+    "frontendDist": "../dist"
+  },
+  "bundle": { "active": true, "targets": "dmg" },
+  "app": { "windows": [{ "title": "VPN 局域网转发", "width": 480, "height": 360, "resizable": false }] }
+}
