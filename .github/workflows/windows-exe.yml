@@ -34,3 +34,8 @@ jobs:
         with:
           name: ${{ matrix.artifact }}
           path: ${{ matrix.path }}
+      - if: matrix.bundle == 'nsis'
+        uses: actions/upload-artifact@v4
+        with:
+          name: vpn-assistant-windows-portable
+          path: src-tauri/target/release/vpn-lan-proxy.exe
