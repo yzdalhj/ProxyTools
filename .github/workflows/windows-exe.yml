@@ -9,6 +9,7 @@ on:
 jobs:
   build:
     strategy:
+      fail-fast: false
       matrix:
         include:
           - os: macos-latest
@@ -28,7 +29,7 @@ jobs:
           cache: npm
       - uses: dtolnay/rust-toolchain@stable
       - run: npm ci
-      - run: npm run tauri build -- --bundles ${{ matrix.bundle }}
+      - run: npm run build -- --bundles ${{ matrix.bundle }}
       - uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.artifact }}
